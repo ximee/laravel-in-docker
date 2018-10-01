@@ -82,31 +82,13 @@ Build service images (stable):
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-Check code style (branch): &check-code-style
-  stage: test
-  image: $APP_IMAGE:$CI_COMMIT_REF_SLUG
-  variables:
-    PHP_CS_FIX_CACHE_FILE_PATH: "${CI_PROJECT_DIR}/.build/cs-fixer-${CI_PROJECT_PATH_SLUG}-${CI_COMMIT_REF_SLUG}.cache"
-  only: *branch-only
-  except: &tests-except
-    variables:
-    - $CI_COMMIT_TITLE =~ /\[skip.?test\]/i
-  script:
-  - cd ./src
-  - composer_install
-  - php ./vendor/bin/cs-fix --dry-run
-  allow_failure: true
-
-Check code style (stable):
-  <<: *check-code-style
-  image: $APP_IMAGE:$CI_COMMIT_REF_NAME
-  only: *stable-only
-
 Execute phpunit (branch): &execute-phpunit
   stage: test
   image: $APP_IMAGE:$CI_COMMIT_REF_SLUG
   only: *branch-only
-  except: *tests-except
+  except: &tests-except
+    variables:
+    - $CI_COMMIT_TITLE =~ /\[skip.?test\]/i
   coverage: '/^\s*Lines:\s*\d+.\d+\%/'
   variables:
     DB_CONNECTION: 'pgsql'

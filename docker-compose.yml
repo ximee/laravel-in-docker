@@ -14,7 +14,7 @@ volumes:
 
 services:
   &app-service app: &app-service-template
-    image: registry.gitlab.com/tarampampam/app:latest
+    image: registry.gitlab.com/tarampampam/laravel-in-docker/app:latest
     #build:
     #  context: ./docker/app
     #  dockerfile: Dockerfile
@@ -83,7 +83,7 @@ services:
     - frontend-network
 
   nginx:
-    image: registry.gitlab.com/tarampampam/nginx:latest
+    image: registry.gitlab.com/tarampampam/laravel-in-docker/nginx:latest
     #build:
     #  context: ./docker/nginx
     #  dockerfile: Dockerfile
