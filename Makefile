@@ -163,4 +163,5 @@ init: install ## Make full application initialization (install, seed, build asse
 	$(docker_compose_bin) run --rm "$(NODE_CONTAINER_NAME)" npm run dev
 
 test: up ## Execute application tests
+	$(docker_compose_bin) exec "$(APP_CONTAINER_NAME)" composer phpstan
 	$(docker_compose_bin) exec "$(APP_CONTAINER_NAME)" composer test
