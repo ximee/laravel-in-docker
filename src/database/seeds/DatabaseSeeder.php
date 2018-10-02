@@ -47,6 +47,7 @@ class DatabaseSeeder extends Seeder
                 'login'        => $login,
                 'display_name' => $login,
                 'password'     => $password,
+                'deleted_at'   => null,
             ]);
         } else {
             $this->log("Static user model ({$login}:{$password}) already exists");

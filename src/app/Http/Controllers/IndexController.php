@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Http\Controllers;
+
+use App\Models\User;
 
 class IndexController extends AbstractController
 {
@@ -9,6 +13,8 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        return view('index');
+        return view('index', [
+            'users' => User::all(),
+        ]);
     }
 }

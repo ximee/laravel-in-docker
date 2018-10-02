@@ -21,6 +21,7 @@
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
+        "phpstan/phpstan": "^0.10.3",
         "phpunit/phpunit": "^7.0"
     },
     "autoload": {
@@ -47,10 +48,11 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover 1> /dev/null",
-            "@php artisan storage:link 1> /dev/null"
+            "@php artisan storage:link"
         ],
         "test": "@php ./vendor/bin/phpunit --no-coverage",
-        "test-cover": "@php ./vendor/bin/phpunit --coverage-text"
+        "test-cover": "@php ./vendor/bin/phpunit --coverage-text",
+        "phpstan": "@php ./vendor/bin/phpstan analyze --ansi --level=2 ./app"
     },
     "config": {
         "preferred-install": "dist",

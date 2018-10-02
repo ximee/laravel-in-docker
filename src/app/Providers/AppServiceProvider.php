@@ -25,19 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->registerAvatarGenerator();
-    }
-
-    /**
-     * Register avatar generator instance.
-     *
-     * @return void
-     */
-    protected function registerAvatarGenerator(): void
-    {
-        $this->app->bind(AvatarGeneratorContract::class, AvatarGenerator::class);
-
-        $this->app->bind('avatar_generator', AvatarGeneratorContract::class);
-        $this->app->bind('avatar.generator', AvatarGeneratorContract::class);
+        //
     }
 }

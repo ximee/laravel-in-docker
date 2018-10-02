@@ -49,6 +49,21 @@
       font-size: 84px;
     }
 
+    .users {
+      font-size: 14px;
+    }
+
+    .users-list {
+      font-size: 12px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .users-list li {
+      display: inline-block;
+      padding-left: 10px;
+    }
+
     .links > a {
       color: #252e37;
       padding: 0 25px;
@@ -71,6 +86,16 @@
   <div class="content">
     <div class="title">
       <img src="{{ asset('img/laravel-in-docker.png') }}" alt="Laravel in docker" width="400">
+      <p class="users">
+        Users:
+        <ul class="users-list">
+          @foreach($users as $user)
+            @if($user instanceof \App\Models\User)
+              <li>{{ $user->login }}</li>
+            @endif
+          @endforeach
+        </ul>
+      </p>
     </div>
   </div>
 </div>
