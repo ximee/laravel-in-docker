@@ -9,7 +9,6 @@ networks:
 volumes:
   redis-data:
   pg-data:
-  rabbit-data:
   home-dir:
 
 services:
@@ -73,7 +72,7 @@ services:
 
   &node-service node:
     <<: *app-service-template
-    image: node:10.10.0-alpine
+    image: tarampampam/node:10.10-alpine
     restart: on-failure
     hostname: *node-service
     working_dir: /app

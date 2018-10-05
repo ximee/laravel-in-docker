@@ -6,7 +6,7 @@ variables:
   APP_IMAGE: $CI_REGISTRY_IMAGE/app
   SOURCES_IMAGE: $CI_REGISTRY_IMAGE/sources
   NGINX_IMAGE: $CI_REGISTRY_IMAGE/nginx
-  NODE_IMAGE: node:10.10.0-alpine
+  NODE_IMAGE: tarampampam/node:10.10-alpine
   POSETGRES_IMAGE: postgres:9.6.10-alpine
   REDIS_IMAGE: redis:4.0.11-alpine
 
